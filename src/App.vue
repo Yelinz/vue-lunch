@@ -1,74 +1,51 @@
 <template>
   <div id="app">
-    <transition name="slide" mode="out-in">
-      <CubeText
-        v-if="face === 0"
-        key="text"
-        msg="This is a Vue.js App"
-        v-on:click.native="changeFace(1)"
-      />
-      <CubeInput
-        v-else-if="face === 1"
-        key="input"
-        v-on:change-face="changeFace"
-      />
-      <CubeInputBandit v-else key="inputBandit" v-on:change-face="changeFace" />
+    <header>
+      <nav>
+        <router-link to="/" exact>Home</router-link>
+        <router-link to="/date">Date</router-link>
+      </nav>
+    </header>
+    <transition
+      name="roll"
+      mode="out-in"
+      enter-active-class="animated rollIn"
+      leave-active-class="animated rollOut"
+    >
+      <router-view class="view"></router-view>
     </transition>
   </div>
 </template>
-
-<script>
-import CubeText from './components/CubeText.vue';
-import CubeInput from './components/CubeInput.vue';
-import CubeInputBandit from './components/CubeInputBandit.vue';
-
-export default {
-  name: 'app',
-  data: function() {
-    return {face: 0};
-  },
-  components: {
-    CubeText,
-    CubeInput,
-    CubeInputBandit,
-  },
-  methods: {
-    changeFace(face) {
-      this.face = face;
-    },
-  },
-};
-</script>
 
 <style>
 body {
   background-color: #41b883;
   overflow: hidden;
-}
-
-body div {
-}
-
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 30vh;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   font-size: 2em;
 }
 
-.slide-enter-active,
-.slide-leave-active {
-  transition: all 0.3s ease;
+nav {
+  display: flex;
+  justify-content: center;
 }
 
-.slide-enter {
-  transform: translateX(100px);
-  opacity: 0;
+nav a {
+  text-decoration: none;
+  color: #2c3e50;
+  margin: 10px;
 }
 
-.slide-leave-to {
-  transform: translateX(-100px);
-  opacity: 0;
+.router-link-active {
+  color: #ffffff;
+}
+
+.view {
+  margin-top: 30vh;
+}
+
+#app {
+  text-align: center;
 }
 </style>
