@@ -1,31 +1,21 @@
 # vue-lunch
 
-Small test app for a vue presentation
+Small demo app for a vue presentation.
+
+Open `slides-vue-lunch.html` in the browser for the presentation.
 
 ## Project setup
+
 ```
 yarn install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
 yarn run serve
 ```
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+### Credit
 
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Presentation made with slides.com and reveal.js
