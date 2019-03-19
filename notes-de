@@ -1,0 +1,158 @@
+1
+vuejs das revolutionäre js framework? ich glaube nicht, doch es ist auf jeden fall ein nützliches tool.
+
+2
+was ist vue: wer vue erschaffen hat, was die motivation dahinter war
+vue einsetzten: wie man vue installiert und was dadurch die unterschiede sind
+h2v: vue grundlagen
+components: wie man components einsetzt
+style guide: in meiner meinung nach die 3 wichtigsten regeln
+v vs e: vorteile, nachteile, nach meiner meinung
+demo
+
+3
+evan you in 2014
+idee kam durch angular, nur das gute zu nehmena und etwas sehr leichtes zu bauen
+
+4
+3 wege
+
+4.1
+unterschied ist single file component und .vue files
+einbinden kann keins
+packet manager kann viellcht
+cli kann beides
+
+5
+jetzt zu den grundlagen von vue
+
+5.1
+html und js kentnisse
+damit kann man eine ganz einfache vue app machen
+el ist das element in welches die vue app läuft
+data sind atrribute die man in der app hat
+und dann so ähnlich wie im ember um die daten im html auszugeben
+
+5.2
+v-bind ist ähnlich wie die handlebars vorhin
+doch sie sind dazu da um die attribute vom element zu setzten
+
+5.3
+v-if sind if statements im html
+im v-if können wir auch expressions verwenden
+z.b. bangs(!), funktions aufrufe und ternary operatoren
+
+5.4
+v-for sind fors schleifen im template um elemente mehrfach anzuzeigen
+
+5.5
+v-on für event listening
+methods um funktionen für die app zu definieren
+
+5.6
+jetzt noch zum letzten nähmlich v-model
+dies ist ein two way binding für data attribute
+doch in wirklichkeit braucht es das value attribut und onchange event
+bedeutet man kann nicht v-bind:value und v-model gleichzeitg verwenden
+
+6
+zusammen fassung damit man die ersten nicht schon wieder vergessen hat
+handlebars um daten im html anzuzeigen
+v-bind um attribute von elementen zu setzten
+v-if ist ein if im html
+v-for ist eine schleife im html
+v-on ist der event listener
+v-model ist das two way binding von daten
+
+6.1
+doch wenn wir 6 verschiedene attribute setzten wollen und gleichzeitig noch 4 verschiedene events abhören mussen
+wird es ein wenig viel jedes mal v-bind und v-on zu schreiben
+deshalb gibt es abkürzungen für diese zwei
+v-bind wird einfach zu einem doppelpunkt
+und v-on wird zu einem @
+
+7
+jetzt schauen wir uns components an
+
+7.1
+wir erstellen ein component indem wir auf der Vue instanz component auf rufen mit allen nötigen werten
+zuerst kommt der name und danach ein objekt mit den attributen
+props ist für daten die vom eltern element übergeben werden
+und template ist das was gerendert wird
+dies ist ein minimal component
+
+7.2
+aber wie setzten wir das component jetzt ein?
+zuerst müssen wir das component definieren
+danach wird eine neue vue app instanziert und dadurch
+können wir im template ein element definieren mit dem namen des components
+auf dem können wir wie auf normalen elementen alles verwenden was wir im how to vue gelernt haben
+
+7.3
+die optionen vom component sind sehr ähnlich vie von der root instanz der app
+die unterschiede sind z.b props und template
+doch computed und watch sind beide im root vorhanden
+dies sind noch lange nicht alle attribute die man definieren kann
+events und noch weitere andere attribute, doch diese sind etwas fortgeschrittener und wir schauen sie deshalb nicht an
+
+8
+und jetzt teile ich mit euch in meiner meinung nach die3 wichtigsten regeln aus dem offizielen style guide von vue mit
+
+8.1
+das data attribut von components muss eine funktion sein
+sonst werden sich alle components das selbe data objekt teilen
+das bedeutet würden wir foo in einem component zu apfel ändern würde in allen andern components das selbe geschehen
+
+8.2
+die props vom component sollten so detailliert wie möglich definiert sein
+dies verhindert unvorhersehbare eingaben und man dokumentiert das component automatisch
+man kann nur den typ definieren oder sogar standart werte, validatoren und noch weiters schon einbauen
+
+8.3
+kein v-if falls schon ein v-for auf dem element definiert ist
+sonst muss vue bei jedem rendern über das ganze array und das if ausführen
+liber sollte man ein computed property defnieren und darin das array filtern
+
+8.4
+und jetzt noch einmal eine schnelle zusammenfassung von den regeln
+component data muss eine funktion sein damit sie einzigartig ist
+die props auf einem component sollten so genau sein wie möglich
+und keine v-if auf einem component worauf ein v-for ist, lieber ein gefiltertes computed property verwenden
+
+9
+noch zum schluss vor der demo, meine meinung zwischen vue und ember
+alles was jetzt kommt ist meine meinung, also nehmt es alles mit einem körnchen salz
+
+9.1
+vue ist im gegensatz zu allen anderen populären js framworks das kleinste, mit kapp über 30kb
+es ist auch sehr felxibel da man nur das vue.js file einbinden muss und man kann vue schon einsetzten
+es ist auch einfach zum lernen im vergelich zu ember
+doch es ist auch zu einfach, es hat keine request library, kein routing, kein store
+dies muss man alles extern durch addons hinzufügen
+
+ember im gegensatz ist strukturiet, während man im vue alles einfach irgendwo plazieren kann
+doch es ist schwer zum lernen und sehr gross
+und auch handlebars als template engine finde ich ist ein grosser nachteil
+man kann eine konditionen standartweise verwenden
+
+das ökosystem von vue ist auch komplett ander als von ember
+sie spezialieseren sich auf so wenige dependencies wie möglich und so klein wie möglich
+währden im ember es normal ist bei einem addon ca 10 andere dependencies zu haben die all wiederum ca 10 haben
+
+beide haben auch dev tools im browser, doch wiederum ist das dev tool von vue
+nicht nur schöner sondern hat auch noch bessere integration mit vuex ihrem data store
+doch das dev tool von ember ist ausführlicher und zeige viele andere daten an, die einen meistens nicht interessieren
+
+vue-cli ist auch ein wenig cooler
+wenn der standart port besetzt ist fällt er nicht gleicht um und wirft mit errors um sich her
+sondern er wechselt auf den nächstbesten freien
+und das live reload ist besser, doch dies können wir in der demo anschauen
+
+also jetzt zur brennenden frage, welches ist besser?
+keines, sie haben zwei komplett verschiedene anwendungszwecke in meiner meinung
+ember ist sehr gut um grosse applikationen zu bauen
+und vue ist sehr gut um in applikationen unterstützend verwendet zu werden
+
+aber jetzt geht es zur demo
+
+10
